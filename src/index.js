@@ -1,7 +1,7 @@
-const svelte = require('svelte/compiler');
-const MagicString = require('magic-string');
+import * as svelte from 'svelte/compiler';
+import MagicString from 'magic-string';
 
-function svelteStyleDirective() {
+export function svelteStyleDirective() {
   return {
     markup: async function ({ content, filename }) {
       const ast = svelte.parse(content);
@@ -109,5 +109,3 @@ function process({ magicString, content }) {
     },
   };
 }
-
-module.exports = { svelteStyleDirective };
