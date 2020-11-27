@@ -12,7 +12,7 @@ export function svelteStyleDirective() {
         map: magicString.generateMap({ source: filename }).toString(),
       };
     }
-  }
+  };
 }
 
 const NodeType = {
@@ -20,7 +20,7 @@ const NodeType = {
   ELEMENT: 'Element',
   TEXT: 'Text',
   MUSTACHE_TAG: 'MustacheTag'
-}
+};
 
 function process({ magicString, content }) {
   /**
@@ -52,7 +52,7 @@ function process({ magicString, content }) {
         if (node.value === true) {
           // IDEs hate that syntax, also you can't use shorthand
           // for property names which have hypens (background-color)
-          throw `Shorthand values are not supported.`;
+          throw 'Shorthand values are not supported.';
         } else if (node.value[0].type === NodeType.MUSTACHE_TAG) {
           // It's like style:color={color}
 
@@ -60,7 +60,7 @@ function process({ magicString, content }) {
           const value = content.slice(expression.start, expression.end);
 
           // Check if the value is truthy or 0, if yes, then include the style.
-          style += `\$\{${value} || ${value} !== 0 ? ` + `"${property}: " + ${value} + "; "` + ': ""\}';
+          style += `$\{${value} || ${value} !== 0 ? ` + `"${property}: " + ${value} + "; "` + ': ""}';
         } else if (node.value[0].type === 'Text') {
           // It's like style:color="red"
 
@@ -88,7 +88,7 @@ function process({ magicString, content }) {
         } else {
           // Did you just use a mustache tag? (style={`font-size: 16px;`})
 
-          throw `Style attribute values other than strings are not supported.`
+          throw 'Style attribute values other than strings are not supported.';
         }
       }
     },
