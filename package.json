@@ -1,6 +1,6 @@
 {
   "name": "svelte-style-directive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A custom Svelte preprocessor to add support for style directive",
   "main": "src/index.js",
   "author": "Siddharth Goswami",
