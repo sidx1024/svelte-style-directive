@@ -18,17 +18,17 @@ A plugin that adds support for `style` directive.
 
 ```svelte
 <script>
-	let progress = 0.5;
+  let progress = 0.5;
 </script>
-
-<!-- With style directive -->
-<div class="progress-bar">
-	<div class="cursor" style={`left: ${progress * 100 + '%'};`}></div>
-</div>
 
 <!-- Without style directive -->
 <div class="progress-bar">
-	<div class="cursor" style:left={progress * 100 + '%'}></div>
+  <div class="cursor" style={`left: ${progress * 100 + '%'};`}></div>
+</div>
+
+<!-- With style directive -->
+<div class="progress-bar">
+  <div class="cursor" style:left={progress * 100 + '%'}></div>
 </div>
 
 <!-- Assume styles for progress-bar and cursor are already declared -->
@@ -82,18 +82,17 @@ instead of this:
 It also works for CSS variables.
 
 ```svelte
-  <script>
-    let textColor = '#9c9c9c';
-  </script>
+<script>
+  let textColor = '#9c9c9c';
+</script>
 
-  <style>
-    span {
-      color: var(--text-color);
-    }
-  </style>
+<style>
+  span {
+    color: var(--text-color);
+  }
+</style>
 
-  <div style:--text-color={textColor}>
-    <span>Some text with color</span>
-  </div>
-
+<div style:--text-color={textColor}>
+  <span>Some text with color</span>
+</div>
 ```
