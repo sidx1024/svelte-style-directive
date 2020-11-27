@@ -1,7 +1,7 @@
 {
   "name": "svelte-style-directive",
   "version": "1.0.0",
-  "description": "A svelte plugin that adds support for style directives",
+  "description": "A custom Svelte preprocessor to add support for style directive",
   "main": "src/index.js",
   "author": "Siddharth Goswami",
   "license": "MIT",
