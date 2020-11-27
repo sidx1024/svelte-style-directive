@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "prepare": "npm run build",
+    "prepublishOnly": "rm -rf dist",
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
     "build": "rollup -c"
   },
