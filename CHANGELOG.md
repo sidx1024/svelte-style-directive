@@ -1,5 +1,8 @@
 # svelte-style-directive Changelog
 
+## 1.0.2
+* Use rollup and node resolve
+
 ## 1.0.1
 * Fixes a bug where style directive won't work with Mustache tags
 
