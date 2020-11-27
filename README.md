@@ -4,9 +4,15 @@
   </a>
 </p>
 
-## What is svelte-style-directive?
+- [What is it?](#what-is-it)
+- [Usage](#usage)
+- [Why?](#why)
+- [Examples](#examples)
+  - [Using state](#using-state)
+  - [CSS variables](#css-variables)
 
-A plugin that adds support for `style` directive.
+## What is it?
+> A custom [Svelte](https://svelte.dev) preprocessor to add support for `style` directive.
 
 ```svelte
 <span
@@ -14,24 +20,6 @@ A plugin that adds support for `style` directive.
   style:color={color}
   style:text-transform="lowercase"
   >
-```
-
-```svelte
-<script>
-  let progress = 0.5;
-</script>
-
-<!-- Without style directive -->
-<div class="progress-bar">
-  <div class="cursor" style={`left: ${progress * 100 + '%'};`}></div>
-</div>
-
-<!-- With style directive -->
-<div class="progress-bar">
-  <div class="cursor" style:left={progress * 100 + '%'}></div>
-</div>
-
-<!-- Assume styles for progress-bar and cursor are already declared -->
 ```
 
 ## Usage
@@ -79,10 +67,10 @@ It's very convenient to apply classes based on state/prop in Svelte.
 ```
 
 `class` directive makes things much easier.
+But, what if you wanted to make this work with `style` attributes?
+This plugin adds support `style` directive to achieve similar functionality.
 
-This plugin allows `style` directives to achieve similar functionality but for style attributes.
 So you can do this:
-
 ```svelte
 <script>
   let bold = true;
@@ -100,9 +88,31 @@ instead of this:
 
 <span style={`${bold ? 'font-weight: bold; ' : ''}${color ? 'color: red; ' : ''}`}>Heading</div>
 ```
+It also works for [CSS Variables](#css-variables)!
 
-It also works for CSS variables.
+## Examples
 
+### Using state
+```svelte
+<script>
+  let progress = 0.5;
+</script>
+
+<!-- Without style directive -->
+<div class="progress-bar">
+  <div class="cursor" style={`left: ${progress * 100 + '%'};`}></div>
+</div>
+
+<!-- With style directive -->
+<div class="progress-bar">
+  <div class="cursor" style:left={progress * 100 + '%'}></div>
+</div>
+
+<!-- Assume styles for progress-bar and cursor are already declared -->
+```
+
+
+### CSS variables
 ```svelte
 <script>
   let textColor = '#9c9c9c';
