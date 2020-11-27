@@ -1,6 +1,6 @@
 {
   "name": "svelte-style-directive",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A custom Svelte preprocessor to add support for style directive",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -46,6 +46,7 @@
   },
   "files": [
     "dist/*",
+    "src/*",
     "README.md"
   ]
 }
