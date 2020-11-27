@@ -1,13 +1,22 @@
 {
   "name": "svelte-style-directive",
   "version": "1.0.0",
-  "description": "",
+  "description": "A svelte plugin that adds support for style directives",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "Siddharth Goswami",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sidx1024/svelte-style-directive.git"
   },
-  "author": "",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidx1024/svelte-style-directive/issues"
+  },
+  "keywords": [
+    "svelte",
+    "style",
+    "css"
+  ],
   "devDependencies": {
     "magic-string": "^0.25.7",
     "svelte": "^3.0.0"
