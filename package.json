@@ -1,8 +1,14 @@
 {
   "name": "svelte-style-directive",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A custom Svelte preprocessor to add support for style directive",
-  "main": "src/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "type": "commonjs",
+  "exports": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/es/index.js"
+  },
   "author": "Siddharth Goswami",
   "license": "MIT",
   "repository": {
@@ -17,8 +23,14 @@
     "style",
     "css"
   ],
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "rollup -c"
+  },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "magic-string": "^0.25.7",
+    "rollup": "^2.33.3",
     "svelte": "^3.0.0"
   }
 }
