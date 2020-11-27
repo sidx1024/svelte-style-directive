@@ -34,6 +34,28 @@ A plugin that adds support for `style` directive.
 <!-- Assume styles for progress-bar and cursor are already declared -->
 ```
 
+## Usage
+Add to `package.json`
+```
+npm i --save-dev svelte-style-directive
+```
+
+Add to `rollup.config.js`
+```js
+import svelte from 'rollup-plugin-svelte'
+import { svelteStyleDirective } from 'svelte-style-directive'
+
+export default {
+  plugins: [
+    svelte({
+      preprocess: [
+        svelteStyleDirective()
+      ]
+    })
+  ]
+}
+```
+
 ## Why?
 
 It's very convenient to apply classes based on state/prop in Svelte.
