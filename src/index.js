@@ -6,7 +6,7 @@ function svelteStyleDirective() {
     markup: async function ({ content, filename }) {
       const ast = svelte.parse(content);
       const magicString = new MagicString(content);
-      svelte.walk(ast.html, process({ magicString }));
+      svelte.walk(ast.html, process({ magicString, content }));
       return {
         code: magicString.toString(),
         map: magicString.generateMap({ source: filename }).toString(),
@@ -22,7 +22,7 @@ const NodeType = {
   MUSTACHE_TAG: 'MustacheTag'
 }
 
-function process({ magicString }) {
+function process({ magicString, content }) {
   /**
    * The idea is to find all the attributes that start with "style:".
    * Then, reduce them into one style attribute.
@@ -56,7 +56,9 @@ function process({ magicString }) {
         } else if (node.value[0].type === NodeType.MUSTACHE_TAG) {
           // It's like style:color={color}
 
-          const value = node.value[0].expression.name;
+          const expression = node.value[0].expression;
+          const value = content.slice(expression.start, expression.end);
+
           // Check if the value is truthy or 0, if yes, then include the style.
           style += `\$\{${value} || ${value} !== 0 ? ` + `"${property}: " + ${value} + "; "` + ': ""\}';
         } else if (node.value[0].type === 'Text') {
