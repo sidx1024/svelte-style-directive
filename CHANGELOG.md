@@ -1,5 +1,8 @@
 # svelte-style-directive Changelog
 
+# 1.0.3
+* Changes to probably fix dist generation
+
 ## 1.0.2
 * Use rollup and node resolve
 
