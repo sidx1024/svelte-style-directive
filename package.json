@@ -1,6 +1,6 @@
 {
   "name": "svelte-style-directive",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A custom Svelte preprocessor to add support for style directive",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -21,7 +21,6 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "prepublishOnly": "rm -rf dist",
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
     "build": "rollup -c"
   },
