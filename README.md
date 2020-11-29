@@ -7,6 +7,7 @@
 - [What is it?](#what-is-it)
 - [Usage](#usage)
 - [Why?](#why)
+- [Performance](#performance)
 - [Examples](#examples)
   - [Using state](#using-state)
   - [CSS variables](#css-variables)
@@ -89,6 +90,9 @@ instead of this:
 <span style={`${bold ? 'font-weight: bold; ' : ''}${color ? 'color: red; ' : ''}`}>Heading</div>
 ```
 It also works for [CSS Variables](#css-variables)!
+
+## Performance
+As this is a preprocessor, it is just a syntactic sugar. It has no runtime overhead.
 
 ## Examples
 
