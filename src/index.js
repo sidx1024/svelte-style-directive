@@ -19,7 +19,8 @@ const NodeType = {
   ATTRIBUTE: 'Attribute',
   ELEMENT: 'Element',
   TEXT: 'Text',
-  MUSTACHE_TAG: 'MustacheTag'
+  MUSTACHE_TAG: 'MustacheTag',
+  INLINE_COMPONENT: 'InlineComponent'
 };
 
 function process({ magicString, content }) {
@@ -34,7 +35,7 @@ function process({ magicString, content }) {
    */
   return {
     enter(node) {
-      if (node.type === NodeType.ELEMENT) {
+      if (node.type === NodeType.ELEMENT || node.type === NodeType.INLINE_COMPONENT) {
         const accumulatedStyles = node.attributes.reduce((acc = '', node) => {
           if (node.type === NodeType.ATTRIBUTE && node.name.startsWith('style:')) {
             // Extract whatever from style:whatever
