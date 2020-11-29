@@ -1,5 +1,8 @@
 # svelte-style-directive Changelog
 
+# 1.0.7
+* Fixed a bug where style attribute caused to throw an error
+
 # 1.0.3 - 1.0.6
 * Changes for fixing dist generation
 
