@@ -9,6 +9,10 @@
         "sourceType": "module"
     },
     "rules": {
+        "max-len": [
+            "warn",
+            100
+        ],
         "indent": [
             "error",
             2
