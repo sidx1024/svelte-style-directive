@@ -75,21 +75,6 @@ function process({ magicString, content }) {
 
         // Remove the original usage of style directive ( style:color={color})
         magicString.remove(node.start - 1, node.end);
-      } else if (node.type === NodeType.ATTRIBUTE && node.name === 'style') {
-        // This is your good old CSS inline style tag (style="color: red;").
-
-        if (node.value[0].type === NodeType.TEXT) {
-          // It's like style="width: 100px; height: 50px;"
-          const style = node.value[0].raw;
-          stack[0].styles += style;
-
-          // Remove it because we're gonna add it later.
-          magicString.remove(node.start - 1, node.end);
-        } else {
-          // Did you just use a mustache tag? (style={`font-size: 16px;`})
-
-          throw 'Style attribute values other than strings are not supported.';
-        }
       }
     },
     leave(node) {
@@ -97,6 +82,11 @@ function process({ magicString, content }) {
         // You're leaving the Element, time to apply the styles.
         const { styles } = stack[0];
         if (styles) {
+
+          const styleAttribute = node.attributes.find(node => node.name === 'style');
+          if (styleAttribute) {
+            throw 'Mixing style attribute and style directive is not supported.';
+          }
 
           // <div*>
           //     ^ Insert the style attribute just after the tag name.
