@@ -1,5 +1,9 @@
 # svelte-style-directive Changelog
 
+# 1.1.0
+* Support Inline Components
+* Refactored and simplified walking
+
 # 1.0.7
 * Fixed a bug where style attribute caused to throw an error
 
