@@ -64,7 +64,7 @@ It's very convenient to apply classes based on state/prop in Svelte.
   }
 </style>
 
-<span class:hidden={hidden} class:bold={bold}>Heading</div>
+<span class:hidden={hidden} class:bold={bold}>Heading</span>
 ```
 
 `class` directive makes things much easier.
@@ -78,7 +78,7 @@ So you can do this:
   let color = 'red';
 </script>
 
-<span style:font-weight={bold} style:color={color}>Heading</div>
+<span style:font-weight={bold} style:color={color}>Heading</span>
 ```
 instead of this:
 ```svelte
@@ -87,7 +87,7 @@ instead of this:
   let color = 'red';
 </script>
 
-<span style={`${bold ? 'font-weight: bold; ' : ''}${color ? 'color: red; ' : ''}`}>Heading</div>
+<span style={`${bold ? 'font-weight: bold; ' : ''}${color ? 'color: red; ' : ''}`}>Heading</span>
 ```
 It also works for [CSS Variables](#css-variables)!
 
