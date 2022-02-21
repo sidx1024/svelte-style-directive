@@ -1,3 +1,6 @@
+## Archive Note
+Archived because Svelte added support for style directives.
+
 <p>
   <a href="https://www.npmjs.com/package/svelte-style-directive">
     <img src="https://img.shields.io/npm/v/svelte-style-directive.svg" alt="npm version">
